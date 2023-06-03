@@ -1,0 +1,55 @@
+﻿@using SalisOtomotiv.Models
+@model List<Car>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Araç Listesi</h5>
+                    <div class="table-responsive">
+                        <table id="zero_config"
+                               class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Başlık</th>
+                                    <th>Marka</th>
+                                    <th>Açıklama</th>
+                                    <th>Eklenme Tarihi</th>
+                                    <th>Model Yılı</th>
+                                    <th>Fiyat</th>
+                                    <th>Detay</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var car in Model)
+                                {
+                                    <tr>
+                                        <td>@car.Id</td>
+                                        <td>@car.Title</td>
+                                        <td>@car.BrandId</td>
+                                        <td>@car.Description</td>
+                                        <td>@car.CreatedDate.ToShortDateString()</td>
+                                        <td>@car.ModelYear</td>
+                                        <td>@car.Price TL</td>
+                                        <td><a href="#" class="btn btn-info">Detay</a></td>
+                                        <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                                        <td><a href="#" class="btn btn-danger">Sil</a></td>
+                                    </tr>
+                                }
+                                </tfoot>
+                        </table>
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Create" class="btn btn-primary">Yeni Araç Ekle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

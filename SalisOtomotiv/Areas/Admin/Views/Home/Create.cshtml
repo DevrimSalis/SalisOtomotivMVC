@@ -1,0 +1,123 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@using SalisOtomotiv.Models
+@model Car
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-0">Araç Ekle</h5>
+                    <form action="Create" method="post">
+                        <div class="form-group mt-3">
+                            <label>Başlık </label>
+                            <input type="text" class="form-control" placeholder="Lütfen başlık giriniz." />
+                        </div>
+                        <div class="form-group mt-3">
+                            <label>Model Yılı </label>
+                            <input type="number" class="form-control" placeholder="Lütfen model yılını giriniz." />
+                        </div>
+                        <div class="form-group mt-3">
+                            <label>KM </label>
+                            <input type="number" class="form-control" placeholder="Lütfen KM bilgisini giriniz." />
+                        </div>
+                        <div class="form-group mt-3">
+                            <label>Motor Gücü </label>
+                            <input type="number" class="form-control" placeholder="Lütfen motor gücünü giriniz." />
+                        </div>
+                        <div class="form-group mt-3">
+                            <label>Motor Hacmi </label>
+                            <input type="number" class="form-control" placeholder="Lütfen motor hacmini giriniz." />
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label class="col-md-3 mt-3">Marka</label>
+                            <div>
+                                <select class="select2 form-select shadow-none" asp-for="BrandId" asp-items="@ViewBag.BrandList">
+                                    <option>Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label class="col-md-3 mt-3">Renk</label>
+                            <div>
+                                <select class="select2 form-select shadow-none" asp-for="ColorId" asp-items="@ViewBag.ColorList">
+                                    <option>Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label class="col-md-3 mt-3">Vites Türü</label>
+                            <div>
+                                <select class="select2 form-select shadow-none" asp-for="TransmissionId" asp-items="@ViewBag.TransmissionList">
+                                    <option>Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="col-md-3 mt-3">Kaç Kapılı</label>
+                            <div>
+                                <select class="select2 form-select shadow-none" asp-for="DoorId" asp-items="@ViewBag.DoorList">
+                                    <option>Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="col-md-3 mt-3">Yakıt Tipi</label>
+                            <div>
+                                <select class="select2 form-select shadow-none" asp-for="FuelTypeId" asp-items="@ViewBag.FuelTypeList">
+                                    <option>Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label class="col-md-3 mt-3">Kasa Tipi</label>
+                            <div>
+                                <select class="select2 form-select shadow-none" asp-for="BodyTypeId" asp-items="@ViewBag.BodyTypeList">
+                                    <option>Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="col-md-3 mt-3">Araç Durumu</label>
+                            <div>
+                                <select class="select2 form-select shadow-none" asp-for="ConditionId" asp-items="@ViewBag.ConditionList">
+                                    <option>Seçiniz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label>Açıklama </label>
+                            <div id="editor">
+                                <p>Lütfen açıklama giriniz.</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-3">Resim Ekle</label>
+                            <div class="col-md-9">
+                                <div class="custom-file">
+                                    <input type="file"
+                                           class="custom-file-input"
+                                           id="validatedCustomFile"
+                                           required />
+                                </div>
+                            </div>
+                        </div>
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Create" class="btn btn-primary">Ekle</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
