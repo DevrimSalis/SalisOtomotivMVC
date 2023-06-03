@@ -31,7 +31,5 @@ namespace SalisOtomotiv.Models
         public BodyType BodyType { get; set; }
         public int ConditionId { get; set; }
         public Condition Condition { get; set; }
-        public List<IFormFile> Images { get; set; }
-        public List<CarImage> CarImages { get; set; }
     }
 }

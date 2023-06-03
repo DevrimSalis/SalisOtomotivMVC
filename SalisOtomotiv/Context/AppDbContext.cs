@@ -10,16 +10,6 @@ namespace SalisOtomotiv.Context
 
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Car>()
-                .Ignore(c => c.Images)
-                .HasNoKey();
-            modelBuilder.Entity<BodyType>()
-        .HasMany(b => b.Cars)
-        .WithOne(c => c.BodyType)
-        .HasForeignKey(c => c.BodyTypeId);
-        }
 
         public DbSet<BodyType> BodyTypes { get; set; }
         public DbSet<Brand> Brands { get; set; }
@@ -30,6 +20,5 @@ namespace SalisOtomotiv.Context
         public DbSet<FuelType> FuelTypes { get; set; }
         public DbSet<Transmission> Transmissions { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<CarImage> CarImages { get; set; }
     }
 }
